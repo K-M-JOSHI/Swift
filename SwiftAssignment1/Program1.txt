@@ -1,0 +1,51 @@
+enum Types{
+	case LeafyGreen
+	case Cruciferous
+	case Marrow
+	case Root
+}
+
+struct Product{
+	
+	var name: String
+	var price: String
+	var quantity: Double
+	var type: Types
+}
+
+
+var products: [Product] = []
+
+products.append(Product(name:"lettuce",price: "10.5 RS",quantity: 50, type: Types.LeafyGreen))
+products.append(Product(name:"cabbage",price: "20 RS",quantity: 100, type:Types.Cruciferous))
+products.append(Product(name:"pumpkin",price: "30 RS",quantity: 30, type: Types.Marrow))
+products.append(Product(name:"cauliflower",price: "10 RS",quantity: 25, type: Types.Cruciferous))
+products.append(Product(name:"zucchini",price: "20.5 RS",quantity: 50, type: Types.Marrow))
+products.append(Product(name:"yam",price: "30 RS",quantity: 50, type: Types.Root))
+products.append(Product(name:"spinach",price: "10 RS",quantity: 100, type: Types.LeafyGreen))
+products.append(Product(name:"broccoli",price: "20.2 RS",quantity: 75, type: Types.Cruciferous))
+products.append(Product(name:"Garlic",price: "30 RS",quantity: 20, type: Types.LeafyGreen))
+products.append(Product(name:"silverbeet",price: "10 RS",quantity: 50, type: Types.Marrow))
+
+print("Total number of product in the list: \(products.count)")
+print("      ")
+products.append(Product(name:"Potato",price: "10 RS",quantity: 50, type: Types.Root))
+
+
+print("Products: ")
+print("Name","Price","Quantity","Type",separator:"\t\t")
+for product in products
+{
+	print(product.name,product.price,product.quantity,product.type,separator: "\t\t")
+}
+print("Total number of product in the list: \(products.count)")
+
+let filtered = products.filter{$0.type == Types.LeafyGreen}
+print("      ")
+
+print("Products with type Leafy Green: ")
+print("Name","Price","Quantity","Type",separator:"\t\t")
+for product in filtered
+{
+	print(product.name,product.price,product.quantity,product.type,separator: "\t\t")
+}

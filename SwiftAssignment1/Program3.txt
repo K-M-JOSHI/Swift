@@ -1,0 +1,73 @@
+protocol Employee {
+   
+	var id: String { get set } 
+        var name: String { get set } 
+	var designation: String { get set } 
+	var experience: Double { get set } 
+	var annualSalary: Double { get set } 
+	var joiningDate: String { get set } 
+	
+	func calculateSalary(basic: Double)
+	
+}
+
+class HR: Employee{
+	var id: String 
+    var name: String 
+	var designation: String 
+	var experience: Double 
+	var annualSalary: Double 
+	var joiningDate: String 
+	
+	init(id:String,name: String, designation: String, experience: Double, annualSalary: Double, joiningDate: String)
+	{
+		self.id = id
+		self.name = name
+		self.designation = designation
+		self.experience = experience
+		self.annualSalary = annualSalary
+		self.joiningDate = joiningDate
+	}
+	
+	 func calculateSalary(basic: Double) {
+		self.annualSalary = basic+(experience*1000)
+	}
+}
+
+class Developer: Employee {
+    var id: String 
+    var name: String 
+	var designation: String 
+	var experience: Double 
+	var annualSalary: Double 
+	var joiningDate: String 
+	
+	init(id:String,name: String, designation: String, experience: Double, annualSalary: Double, joiningDate: String)
+	{
+		self.id = id
+		self.name = name
+		self.designation = designation
+		self.experience = experience
+		self.annualSalary = annualSalary
+		self.joiningDate = joiningDate
+	}
+	
+    func  calculateSalary(basic: Double) {
+		self.annualSalary = basic+(experience*2000)
+	}
+}
+
+var hr : HR = HR(id:"1",name:"Om",designation:"HR",experience:4,annualSalary:0.0,joiningDate:"02/02/2014")
+hr.calculateSalary(basic: 8000)
+
+print("HR : Salary")
+print(hr.name,hr.annualSalary,separator:" : ")
+
+print("  ")
+
+
+var dev : Developer = Developer(id:"2",name:"Jay",designation:"Developer",experience:5,annualSalary:0.0,joiningDate:"08/01/2013")
+dev.calculateSalary(basic: 8000)
+
+print("Developer : Salary")
+print(dev.name,dev.annualSalary,separator:" : ")

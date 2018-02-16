@@ -1,0 +1,32 @@
+struct PrimeMinister{
+	var name: String
+}
+
+var primeMinisters = [1998:PrimeMinister(name:"Atal Bihari Vajpayee"),
+					 2014:PrimeMinister(name:"Narendra Modi"),
+					 2004:PrimeMinister(name:"Manmohan Singh")
+					 ]
+
+let pmOf2014 = primeMinisters.filter {$0.key == 2004}
+for (key,pm) in pmOf2014
+{
+	print(key,pm.name,separator:" : ")
+}
+
+print("  ")
+primeMinisters[2018] = PrimeMinister(name:"Narendra Modi")
+print("After adding current prime minister")
+print("In Dictionary: ")
+for (key,pm) in primeMinisters
+{
+	print(key,pm.name,separator:" : ")
+}
+
+print(" ")
+print("Sorted By Year")
+
+let sorted = primeMinisters.sorted{$0.key < $1.key}
+for (key,pm) in sorted
+{
+	print(key,pm.name,separator:" : ")
+}
